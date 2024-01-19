@@ -33,9 +33,14 @@ dependencies=("unzip" "curl" "ca-certificates" "gnupg" "python3" "python3-pip")
 install_dependencies "${dependencies[@]}"
 
 # Instalando o Go
+# Instalando o Go
 banner "Instalando o Go"
-GO_VERSION="1.21"
-if curl -LO "https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz" && sudo tar -C /usr/local -xzf "go${GO_VERSION}.linux-amd64.tar.gz"; then
+GO_VERSION="1.21.1"  # atualize isso para a versão desejada do Go
+GO_OS="linux"
+GO_ARCH="amd64"
+GO_FILE="go${GO_VERSION}.${GO_OS}-${GO_ARCH}.tar.gz"
+GO_URL="https://golang.org/dl/${GO_FILE}"
+if curl -LO "${GO_URL}" && sudo tar -C /usr/local -xzf "${GO_FILE}"; then
   echo "Go instalado com sucesso." >> install.log
   echo "export PATH=\$PATH:/usr/local/go/bin" >> ~/.bashrc
   source ~/.bashrc
@@ -43,6 +48,7 @@ if curl -LO "https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz" && sudo t
 else
   echo "Erro ao instalar Go." >> install.log
 fi
+
 
 # Instalando o Docker
 banner "Instalando o Docker"
