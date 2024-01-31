@@ -35,7 +35,7 @@ install_dependencies "${dependencies[@]}"
 # Instalando o Go
 # Instalando o Go
 banner "Instalando o Go"
-GO_VERSION=1.21.6  # atualize isso para a versão desejada do Go
+GO_VERSION="1.21.6"  # atualize isso para a versão desejada do Go
 GO_OS="linux"
 GO_ARCH="amd64"
 GO_FILE="go${GO_VERSION}.${GO_OS}-${GO_ARCH}.tar.gz"
